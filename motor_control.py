@@ -7,6 +7,7 @@ full = 640
 half_right = half + 20
 half_left = half - 20
 range_f = 300
+ratio = 0.87272
 
 def center_ball(x, pwm_1, pwm_2, m1, m2):
     if x == -1:
@@ -17,20 +18,20 @@ def center_ball(x, pwm_1, pwm_2, m1, m2):
         print("On center")
         return 1
     elif x > half_right:
-        GPIO.output(m1, True)
-        GPIO.output(m2, False)
-        speed = int((x/range_f - 1)*15 + 50)
-        print("Turning right. Speed: ", speed)
-        pwm_1.ChangeDutyCycle(int(30))
-        pwm_2.ChangeDutyCycle(int(30))
-        
-    elif x < half_left:
         GPIO.output(m1, False)
         GPIO.output(m2, True)
+        speed = int((x/range_f - 1)*15 + 50)
+        print("Turning right. Speed: ", speed)
+        pwm_1.ChangeDutyCycle(int(40))
+        pwm_2.ChangeDutyCycle(int(40*ratio))
+        
+    elif x < half_left:
+        GPIO.output(m1, True)
+        GPIO.output(m2, False)
         speed = int((1-x/range_f) * 15 + 50)
         print("Turning left. Speed: ", speed)
-        pwm_1.ChangeDutyCycle(int(30))
-        pwm_2.ChangeDutyCycle(int(30))
+        pwm_1.ChangeDutyCycle(int(40))
+        pwm_2.ChangeDutyCycle(int(40*ratio))
         
     return 0
 
@@ -40,7 +41,8 @@ def go_forward(pwm_1, pwm_2, m1, m2):
     pwm_1.ChangeDutyCycle(int(40))
     pwm_2.ChangeDutyCycle(int(40))
     print("Going forward")
-    
+   
+"""   
 e1 = 12
 m1 = 10
 e2 = 32
@@ -52,14 +54,21 @@ GPIO.setup(m1, GPIO.OUT)
 GPIO.setup(e2, GPIO.OUT)
 GPIO.setup(m2, GPIO.OUT)
 
+pwm_1 = GPIO.PWM(e1, 500)
+pwm_2 = GPIO.PWM(e2, 500)
+
+
+# Inicializo PWM con un duty Cicle de cero
+pwm_1.start(0)
+pwm_2.start(0)
 
 GPIO.output(m1, False)
-GPIO.output(e1, True)
-time.sleep(1)
+GPIO.output(m2, False)
+pwm_1.ChangeDutyCycle(55)
+pwm_2.ChangeDutyCycle(int(55*ratio))
+print("Going forward")
+time.sleep(2)
+pwm_1.stop()
+pwm_2.stop()
 GPIO.cleanup()
-
-
-
-
-
-    
+"""

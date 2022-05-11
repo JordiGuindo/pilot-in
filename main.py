@@ -42,8 +42,8 @@ if __name__ == "__main__":
         if (c == 1):
             GPIO.output(m1, False)
             GPIO.output(m2, False)
-            pwm_1.ChangeDutyCycle(35)
-            pwm_2.ChangeDutyCycle(35)
+            pwm_1.ChangeDutyCycle(40)
+            pwm_2.ChangeDutyCycle(int(40*0.87272))
             print("Going forward")
             
         if key == ord("q"):

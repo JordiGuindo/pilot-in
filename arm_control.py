@@ -2,40 +2,42 @@ import RPi.GPIO as GPIO
 import time
 
 def AngleToDuty(ang):
-  return float(pos)/10.+5.
+  return float(ang)/10.+5.
   
 #Setup servoPin as PWM output of frequancy 100Hz
-servoPin=33
-GPIO.setmode(GPIO.BOARD)
-GPIO.setup(servoPin,GPIO.OUT)
-pwm=GPIO.PWM(servoPin,100)
-#setup sweep parameters
-depart =0
-arrivee=180
-DELAY=0.1
-incStep=5
-pos=depart
 
-pwm.start(AngleToDuty(pos)) #star pwm
-nbRun=3
-i=0
-while i<nbRun:
-    print("--------------------------run {}".format(i)) 
-    for pos in range(depart,arrivee,incStep):
-        duty=AngleToDuty(pos)
-        pwm.ChangeDutyCycle(duty)
-        time.sleep(DELAY)
-    print("position: {}° -> duty cycle : {}%".format(pos,duty))
-    
-    for pos in range(arrivee,depart,-incStep):
-        duty=AngleToDuty(pos)
-        pwm.ChangeDutyCycle(duty)
-        time.sleep(DELAY)
-    print("position: {}° -> duty cycle : {}%".format(pos,duty))
-    
-    i=i+1
-  
-pwm.stop() #stop sending value to output
-GPIO.cleanup() #release channel
+wristPin=35
+armPin =33
+GPIO.setmode(GPIO.BOARD)
+GPIO.setup(wristPin,GPIO.OUT)
+GPIO.setup(armPin, GPIO.OUT)
+pwm_w=GPIO.PWM(wristPin, 100)
+pwm_a = GPIO.PWM(armPin, 100)
+
+pwm_w.start(0) #star pwm
+pwm_w.ChangeDutyCycle(AngleToDuty(170))
+time.sleep(1)
+pwm_w.ChangeDutyCycle(AngleToDuty(140))
+time.sleep(0.2)
+pwm_w.ChangeDutyCycle(AngleToDuty(135))
+time.sleep(0.2)
+pwm_w.ChangeDutyCycle(AngleToDuty(130))
+time.sleep(0.2)
+pwm_w.ChangeDutyCycle(AngleToDuty(125))
+
+
+pwm_a.start(0) #star pwm
+for i in range(170, 50, -5):
+    pwm_a.ChangeDutyCycle(AngleToDuty(i))
+    time.sleep(0.2)
+
+
+
+time.sleep(1)
+pwm_w.stop()
+pwm_a.stop()
+GPIO.cleanup()
+
+
 
 
