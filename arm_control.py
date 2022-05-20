@@ -23,7 +23,7 @@ def get_ball(pwm_w, pwm_a):
         pwm_a.ChangeDutyCycle(AngleToDuty(i))
         time.sleep(0.1)
         
-    pwm_w.ChangeDutyCycle(AngleToDuty(130))
+    pwm_w.ChangeDutyCycle(AngleToDuty(140))
     time.sleep(0.2)
 
     for i in range(50, 176, 2):
@@ -36,6 +36,8 @@ def get_ball(pwm_w, pwm_a):
     time.sleep(1)
     pwm_w.ChangeDutyCycle(0)
     pwm_a.ChangeDutyCycle(0)
+
+
 
 
 
