@@ -51,5 +51,19 @@ On the other hand, we used 3D printing to ensemble the full robot. Here is how t
 <img src="https://github.com/JordiGuindo/pilot-in/blob/main/images/final_ensemble.png"/>  
 
 # Software
-
+In the following picture are depicted the different software modules. The inputs and outputs of each module can be seen.
+<img src="https://github.com/JordiGuindo/pilot-in/blob/main/images/software_modules.jpg"/>
+### Image capture
+This module takes care of capturing the image that the camera sees. It is implemented directly with the functions that OpenCV provides.
+### Distance Sensor Module  
+The only library needed for this module is the GPIO library, that allows to control the pins of the RPi. It is entirely in the distance_sensor.py file.
+### Ball detection
+For this module, the OpenCV library is needed. To detect the balls we use two filters for the image that comes from the Image Capture module: a color filter
+and a shape filter. These can be changed. After applying the color filter, a binary image is obtain, where the white pixels represent the color we are looking for.
+After that, the shape filter is used to discard other possible objects with the same color. Lastly, we use some OpenCV functions to draw a circle around the ball:
+<img src="https://github.com/JordiGuindo/pilot-in/blob/main/images/ball_detection.jpg"/>  
+This module is coded in the ball_detection.py file. 
+### Motion planner
+This is the main module. Depending on what this module recieves from the previous ones, it tells the motors to behave in different ways in order to approach the ball
+and get it. 
 
