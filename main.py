@@ -34,15 +34,11 @@ if __name__ == "__main__":
     pwm_w=GPIO.PWM(wristPin, 100)
     pwm_a = GPIO.PWM(armPin, 100)
 
-
-    # Inicializo PWM con un duty Cicle de cero
     pwm_1.start(0)
     pwm_2.start(0)
     vs = cv2.VideoCapture(0)
     pwm_w.start(0)
     pwm_a.start(0)
-    
-    
     
     # This two pins control de distance sensor
     trigger = 13
