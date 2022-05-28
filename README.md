@@ -1,4 +1,4 @@
-<img src="https://github.com/JordiGuindo/pilot-in/images/PILOT-IN.jpeg" align="right" width="300" alt="header pic"/>
+<img src="https://github.com/JordiGuindo/pilot-in/blob/main/images/PILOT-IN.jpeg" align="right" width="300" alt="header pic"/>
 
 # PILOT-IN
 This robot recognises ping-pong balls using computer vision and gets them with the help of an arm. It stores them in a removable case. 
@@ -35,4 +35,4 @@ We presented PILOT-IN, a robot whose objective is to recognise ping-pong balls a
 	- Wheels (2) and crazy wheel
 	- Pololu micrometal motors 75:1 (2)
 - 3D pieces
-	- They are all [here](https://github.com/JordiGuindo/pilot-in/3D/)
+	- They are all [here](https://github.com/JordiGuindo/pilot-in/tree/main/3D)
