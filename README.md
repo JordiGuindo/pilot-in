@@ -38,17 +38,17 @@ We presented PILOT-IN, a robot whose objective is to recognise ping-pong balls a
 	- They are all [here](https://github.com/JordiGuindo/pilot-in/tree/main/3D)
 # Hardware
 The following picture shows how all the electronic components are connected. 
-<img src="https://github.com/JordiGuindo/pilot-in/blob/main/images/hardware.jpg" width="300" alt="header pic"/>
-The Raspberry PI is the brain of PILOT-IN.\n
+<img src="https://github.com/JordiGuindo/pilot-in/blob/main/images/hardware.jpg"/>  
+The Raspberry PI is the brain of PILOT-IN.  
 All motors are connected to pins that can give PWM signals, so we can control the amount of power
 they recieve. In the case of the wheel motors, we have two cables coming out of the RPi to control each one of them. One controls the speed, the other the direction. 
 This connects to the Motor Dual Controller, which will give the corresponding power to the motors. 
 With the servomotors only one cable is necessary. Motors are powered by external batteries, 7.2 V for the wheel ones and 6 V for the servomotors.\n
 We took advantage of the power supply the RPi can give to power the HC-SR04 ultrasonic sensor. However, a voltage divisor has to be used for the echo pin, 
-since the RPi cannot take an input of more than 3.3 V. \n
-Lastly, we have camera connected to it.\n\n
+since the RPi cannot take an input of more than 3.3 V.  
+Lastly, we have camera connected to it.    
 On the other hand, we used 3D printing to ensemble the full robot. Here is how the final ensemble of this pieces looks like (the black pieces represent the electronic components):
-<img src="https://github.com/JordiGuindo/pilot-in/blob/main/images/final_ensemble.png" width="300" alt="header pic"/>
+<img src="https://github.com/JordiGuindo/pilot-in/blob/main/images/final_ensemble.png"/>  
 
 # Software
 
