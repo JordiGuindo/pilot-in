@@ -105,10 +105,10 @@ Jordi Guindo Martínez
 Ferran Anton Serrano  
 
 # Bibliography
-This project has been inspired by the following Internet projects:
+This project has been inspired by the following Internet projects:  
 "Robot recogepelotas", MECATRONICA ESPE LATACUNA ECUADOR - SUDAMÉRICA, https://www.youtube.com/watch?v=108TMEKc74c  
 “Sistema autónomo para recolección de bolas de tenis mediante vision artificial”, D. Gaitán Tabares, H. Martínez Arcila. Universidad Distrital Francisco José Caldas, 2015.  
-Here you can find what we have used to code the robot: 
+Here you can find what we have used to code the robot:  
 "Teach, Learn, and Make with Raspberry PI", https://www.raspberrypi.org/  
 "RPi.GPIO - PyPI", https://pypi.org/project/RPi.GPIO/
 "OpenCV", https://opencv.org/
