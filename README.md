@@ -79,10 +79,10 @@ to avoid big obstacles, like walls or table legs. PILOT-IN will alternate betwee
 position of the ball, the robot will go forward or will turn left or right. When the ball is in a reachable position, a function is called so the arm moves to pick it up. 
 In the following gif, you can see the what the robot sees and how it approaches the ball:
 <img src="https://github.com/JordiGuindo/pilot-in/blob/main/images/motion_planner.gif"/>  
-This module is coded in the main.py file.  
+This module is coded in the main.py file.
 ### Wheel control 
 This module focuses on doing the control part of the wheels by by using Raspberry PI's signals. Therefore, we use this signals to operate and control the DC motors calling some functions that manage these signals. 
-The GPIO library is used for that. All of it is coded in the motor_control.py file.  
+The GPIO library is used for that. All of it is coded in the motor_control.py file.
 ### Arm control 
 This module has the same function as the Wheel Control module, but this module focuses on the arm control. It uses functions and the signals of the Raspberry PI to control the movement of the arm, needed to move the balls into the tube/box.
 The GPIO library is also used here. It is coded in the arm_control.py file. 
